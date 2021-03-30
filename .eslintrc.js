@@ -32,6 +32,7 @@ module.exports = {
   },
   plugins: ['promise', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
     'import/extensions': [
