@@ -1,3 +1,7 @@
+// const OFF = 0
+// const WARN = 1
+const ERROR = 2
+
 module.exports = {
   env: {
     browser: true,
@@ -9,9 +13,7 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
-    'prettier/@typescript-eslint',
-    'prettier/react'
+    'prettier'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -28,8 +30,10 @@ module.exports = {
       }
     }
   },
-  plugins: ['promise', 'react', '@typescript-eslint'],
+  plugins: ['promise', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
+    'no-use-before-define': 'off',
+    'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
     'import/extensions': [
       ERROR,
       'ignorePackages',
