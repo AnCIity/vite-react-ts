@@ -1,5 +1,6 @@
 {
   "name": "vite-react-ts",
+  "description": "Vite+React+Typescript",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -10,6 +11,21 @@
     "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnCIity/vite-react-ts"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "vite"
+  ],
+  "author": "City",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnCIity/vite-react-ts/issues"
+  },
+  "homepage": "https://github.com/AnCIity/vite-react-ts#readme",
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
