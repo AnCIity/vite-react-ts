@@ -1,4 +1,4 @@
-// const OFF = 0
+const OFF = 0
 // const WARN = 1
 const ERROR = 2
 
@@ -32,7 +32,7 @@ module.exports = {
   },
   plugins: ['promise', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
-    'no-use-before-define': 'off',
+    'no-use-before-define': OFF,
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],
     'import/extensions': [
       ERROR,
