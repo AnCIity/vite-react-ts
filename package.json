@@ -1,6 +1,7 @@
 {
   "name": "vite-react-ts",
-  "version": "0.0.1",
+  "description": "Vite+React+Typescript",
+  "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +11,23 @@
     "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnCIity/vite-react-ts"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "vite"
+  ],
+  "author": "City",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnCIity/vite-react-ts/issues"
+  },
+  "homepage": "https://github.com/AnCIity/vite-react-ts#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0"
@@ -18,8 +35,10 @@
   "devDependencies": {
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@types/axios": "^0.14.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "@vitejs/plugin-react-refresh": "^1.3.1",
@@ -40,6 +59,7 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-order": "^4.1.0",
+    "stylus": "^0.54.8",
     "typescript": "^4.1.2",
     "vite": "^2.1.3"
   }

@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>App</div>
+    <Router>
+      <Switch>
+        <Route path='/' />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 )
