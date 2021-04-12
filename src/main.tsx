@@ -1,16 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { HashRouter as Router, Switch } from 'react-router-dom'
 import './assets/css/reset.css'
-import Home from '@/views/Home/Home'
-import Code from './views/Code/Code'
+import RouteView from '@/libs/router/RouteView'
+import routes from '@/router'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/code' component={Code} />
+        <RouteView routes={routes} />
       </Switch>
     </Router>
   </React.StrictMode>,
