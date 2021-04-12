@@ -5,7 +5,8 @@ const ERROR = 2
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    node: true
   },
   extends: [
     'airbnb',
@@ -23,15 +24,17 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
+  plugins: ['promise', 'react', 'react-hooks', '@typescript-eslint'],
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.tsx', '.ts', '.js', '.json']
-      }
+      },
+      typescript: {}
     }
   },
-  plugins: ['promise', 'react', 'react-hooks', '@typescript-eslint'],
   rules: {
+    'react/button-has-type': OFF,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-use-before-define': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.tsx'] }],

@@ -8,7 +8,7 @@ import axios from 'axios'
 // import Vue from "vue";
 
 /* 创建 axios 实例 */
-const instance = axios.create({ baseURL: '/' })
+const instance = axios.create({ baseURL: '/api' })
 /* 设置 post请求头 */
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 
