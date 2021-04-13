@@ -1,3 +1,3 @@
-export interface a {
-  c: number
+export interface IObject {
+  [key: string]: any
 }

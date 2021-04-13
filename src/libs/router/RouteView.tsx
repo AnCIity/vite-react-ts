@@ -1,3 +1,9 @@
+/**
+ * @author City
+ * @description 路由视图
+ * @todo 权限控制
+ */
+
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { IRouteList } from './type'

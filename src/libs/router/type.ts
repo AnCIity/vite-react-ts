@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * 路由
+ */
 export interface IRoute {
   /**
    * 路径
@@ -27,4 +30,7 @@ export interface IRoute {
   routes?: IRoute[]
 }
 
+/**
+ * 路由列表
+ */
 export type IRouteList = IRoute[]

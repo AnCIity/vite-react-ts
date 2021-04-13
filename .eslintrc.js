@@ -34,6 +34,7 @@ module.exports = {
     }
   },
   rules: {
+    '@typescript-eslint/no-explicit-any': ['off'],
     'react/button-has-type': OFF,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-use-before-define': 'off',
