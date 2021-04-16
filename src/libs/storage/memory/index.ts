@@ -3,13 +3,11 @@
  * @description 内存缓存
  */
 
-import { IObject } from '@/typings'
-
 /**
  * 内存缓存
  */
-class Cache {
-  private cache: IObject = {}
+class Memory {
+  private cache: { [k: string]: any } = {}
 
   /**
    * 设置
@@ -47,4 +45,4 @@ class Cache {
   }
 }
 
-export default Cache
+export default Memory

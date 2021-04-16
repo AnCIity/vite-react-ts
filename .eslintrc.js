@@ -34,6 +34,11 @@ module.exports = {
     }
   },
   rules: {
+    'max-classes-per-file': OFF,
+    'no-param-reassign': OFF,
+    '@typescript-eslint/explicit-module-boundary-types': OFF,
+    'import/prefer-default-export': OFF,
+    'no-underscore-dangle': ['off', 'always'],
     '@typescript-eslint/no-explicit-any': ['off'],
     'react/button-has-type': OFF,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
