@@ -28,6 +28,7 @@
   "homepage": "https://github.com/AnCIity/vite-react-ts#readme",
   "dependencies": {
     "axios": "^0.21.1",
+    "qs": "^6.10.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0"
@@ -36,6 +37,7 @@
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
     "@types/axios": "^0.14.0",
+    "@types/qs": "^6.9.6",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",

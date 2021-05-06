@@ -3,6 +3,7 @@
  * @description axios封装，请求拦截、响应拦截、错误统一处理
  */
 
+import { token } from '@/utils/cookie'
 import axios from 'axios'
 
 /* 创建 axios 实例 */
@@ -20,7 +21,7 @@ const errorHandler = (error: any) => {
       break
     case 401:
       err.message = '未授权，请登录'
-      // TODO: 跳转登录 删除token
+      token.remove()
       break
     case 403:
       err.message = '拒绝访问'
@@ -57,32 +58,19 @@ const errorHandler = (error: any) => {
 }
 
 /* 添加请求拦截器 */
-instance.interceptors.request.use(
-  config =>
-    // 在发送请求之前做些什么
-    // config.headers.Authorization = storage().get('ACCESS_TOKEN')
+instance.interceptors.request.use(config => {
+  config.headers.authorization = token.get()
 
-    config,
-  error =>
-    // 对请求错误做些什么
-
-    error
-)
+  return config
+}, errorHandler)
 
 /* 添加响应拦截器 */
-instance.interceptors.response.use(
-  response =>
-    // 对响应数据做点什么
-    // 若返回的请求头中包含 authorization, 则存入到缓存中
-    // if (response.headers.authorization) {
-    //   storage().set('ACCESS_TOKEN', response.headers.authorization)
-    // }
+instance.interceptors.response.use(response => {
+  if (response.headers.authorization) {
+    token.set(response.headers.authorization)
+  }
 
-    response,
-  error =>
-    // 对响应错误做点什么
-
-    error
-)
+  return response
+}, errorHandler)
 
 export default instance

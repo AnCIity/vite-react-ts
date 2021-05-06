@@ -34,6 +34,7 @@ module.exports = {
     }
   },
   rules: {
+    'no-shadow': OFF,
     'max-classes-per-file': OFF,
     'no-param-reassign': OFF,
     '@typescript-eslint/explicit-module-boundary-types': OFF,
