@@ -34,6 +34,11 @@ module.exports = {
     }
   },
   rules: {
+    'jsx-a11y/click-events-have-key-events': OFF,
+    'jsx-a11y/no-static-element-interactions': OFF,
+    'react/prop-types': OFF,
+    'promise/always-return': OFF,
+    'promise/catch-or-return': OFF,
     'no-shadow': OFF,
     'max-classes-per-file': OFF,
     'no-param-reassign': OFF,

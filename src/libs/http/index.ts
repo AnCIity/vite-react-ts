@@ -1,7 +1,7 @@
 import qs from 'qs'
 import { interceptorsFactory } from './interceptors'
 import { DefaultConfig, IHttpInterceptors, IRequestOptional, IRequestOptions, REQUEST_TYPE } from './types'
-// TODO: mock的延时和部分mock、插件系统、撤回请求
+// TODO: mock的延时和部分mock、插件系统、撤回请求、请求重试
 // TODO: 支持：xhr、application/json
 
 const request = async (options: IRequestOptions = { url: '', method: REQUEST_TYPE.POST }) => {
