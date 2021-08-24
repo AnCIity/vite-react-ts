@@ -1,5 +1,5 @@
 const OFF = 0
-// const WARN = 1
+const WARN = 1
 const ERROR = 2
 
 module.exports = {
@@ -34,6 +34,9 @@ module.exports = {
     }
   },
   rules: {
+    '@typescript-eslint/no-unused-vars': [WARN, { argsIgnorePattern: '^_' }],
+    'no-restricted-syntax': OFF,
+    'no-useless-constructor': OFF,
     'jsx-a11y/click-events-have-key-events': OFF,
     'jsx-a11y/no-static-element-interactions': OFF,
     'react/prop-types': OFF,

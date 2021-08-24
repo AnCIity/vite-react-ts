@@ -3,6 +3,7 @@
   "description": "Vite+React+Typescript",
   "version": "0.0.1",
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
