@@ -1,10 +1,26 @@
 interface IOptions {
   /**
-   * 立即执行
+   * 立即执行 - 调用时
    *
    * default = true
    */
   immediate?: boolean
+  /**
+   * 延时执行 - 结束时
+   *
+   * default = true
+   */
+  delayed?: boolean
+  /**
+   * 创建执行 - 创建时
+   *
+   * default = false
+   */
+  creating?: boolean
+  /**
+   * 创建执行参数
+   */
+  creatingParams?: any[]
   /**
    * 间隔
    *
@@ -28,25 +44,37 @@ const createThrottleInterval = <T extends (...args: any[]) => void>(
    */
   const immediate = typeof options === 'number' ? false : options.immediate || true
   /**
+   * 创建时执行
+   */
+  const delayed = typeof options === 'number' ? false : options.creating || true
+  /**
+   * 创建时执行
+   */
+  const creating = typeof options === 'number' ? false : options.creating || false
+  /**
    * 间隔
    */
   const interval = typeof options === 'number' ? options : options.interval || 1000
   /**
    * 上次执行时间
    */
-  let prevTime = 0
+  let timeout: number | null = null
+
+  // 创建执行
+  if (creating) callback(...((options as any)?.creatingParams || []))
 
   /**
    * 节流函数
    */
   const throttled = (...args: any[]) => {
-    const nowTime = +new Date()
-    const nowInterval = nowTime - prevTime
+    if (timeout) return
 
-    if (nowInterval > interval) {
-      callback(...args)
-      prevTime = nowTime
-    }
+    if (immediate) callback(...args)
+
+    timeout = setTimeout(() => {
+      timeout = null
+      if (delayed) callback(...args)
+    }, interval)
   }
 
   return throttled as T

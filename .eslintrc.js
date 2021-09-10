@@ -34,6 +34,7 @@ module.exports = {
     }
   },
   rules: {
+    'react/jsx-props-no-spreading': OFF,
     '@typescript-eslint/no-unused-vars': [WARN, { argsIgnorePattern: '^_' }],
     'no-restricted-syntax': OFF,
     'no-useless-constructor': OFF,

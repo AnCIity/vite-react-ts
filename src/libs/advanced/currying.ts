@@ -1,5 +1,6 @@
-// 函数柯里化: 顺序传参
+// 函数柯里化: 不是固定的，是一种思维。先传一定参数，返回函数，解决重复传参问题。
 
+// 不限参数版
 const currying = (callback: (...args: any[]) => any) => {
   const params: any[] = []
 
@@ -14,5 +15,7 @@ const currying = (callback: (...args: any[]) => any) => {
 
   return fn
 }
+
+// 指定参数版
 
 export default currying

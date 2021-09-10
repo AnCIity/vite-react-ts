@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+// TODO: 防抖 节流 撤销请求
 
 interface IOptions {
   /**
@@ -31,3 +32,9 @@ const useRequest = <T>(service: () => Promise<T>, options?: IOptions) => {
 }
 
 export default useRequest
+
+// export const useLayoutRequest = <T>(service: () => Promise<T>) => {
+//   const request = useRequest(service)
+
+//   return request
+// }

@@ -1,5 +1,7 @@
 import { elementCalcOffsetToBody, elementWhetherAllInView, elementWhetherPartInView } from '../../calc'
-import scrollTask from '../scroll'
+import Scroll from '../scroll'
+
+const scrollTask = new Scroll()
 
 /**
  * 锚点
@@ -62,10 +64,7 @@ class Anchor {
        */
       readonly callback?: (top: number) => string
     }
-  ) {
-    // 初始挂载
-    this.mount()
-  }
+  ) {}
 
   /**
    * 选中类名
@@ -123,7 +122,7 @@ class Anchor {
   /**
    * 挂载
    */
-  private mount() {
+  mount() {
     // 锚点元素
     this.anchorList.forEach(anchor => {
       const element = document.getElementById(anchor.id) as HTMLElement
@@ -155,6 +154,13 @@ class Anchor {
 
     // 添加任务
     scrollTask.add(this.test)
+  }
+
+  /**
+   * 卸载
+   */
+  unMount() {
+    scrollTask.remove(this.test)
   }
 }
 
