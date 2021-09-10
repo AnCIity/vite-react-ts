@@ -3,8 +3,17 @@ import { elementWhetherPartInView } from '@/libs/element/calc'
 import createThrottleInterval from '@/libs/advanced/throttleInterval'
 
 interface IProps {
+  /**
+   * 动态组件
+   */
   Component?: React.ElementType
+  /**
+   * 加载状态渲染
+   */
   loadingRender?: React.ReactNode
+  /**
+   * 加载偏移
+   */
   skew?: number
 }
 
