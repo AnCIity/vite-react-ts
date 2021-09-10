@@ -9,9 +9,9 @@ export const elementGetRectByView = (element: HTMLElement) => {
 
   return {
     top: rect.top - top,
-    bottom: rect.bottom - top,
+    bottom: document.documentElement.clientHeight - rect.bottom - top,
     left: rect.left - left,
-    right: rect.right - left
+    right: document.documentElement.clientWidth - rect.right - left
   }
 }
 

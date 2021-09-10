@@ -7,7 +7,7 @@ import { token } from '@/utils/cookie'
 import axios from 'axios'
 
 /* 创建 axios 实例 */
-const instance = axios.create({ baseURL: import.meta.env.BASE_URL, timeout: 10000 })
+const instance = axios.create({ baseURL: import.meta.env.VITE_BASE_URL, timeout: 10000 })
 
 // 异常拦截处理器
 const errorHandler = (error: any) => {
@@ -70,7 +70,7 @@ instance.interceptors.response.use(response => {
     token.set(response.headers.authorization)
   }
 
-  return response
+  return response.data
 }, errorHandler)
 
 export default instance
