@@ -14,9 +14,9 @@ export class Interceptors<T> {
   }
 }
 
-export const interceptorsFactory = () => {
+export const interceptorsFactory = <T>() => {
   const request = new Interceptors<IRequestInterceptor>()
-  const response = new Interceptors<IResponseInterceptor>()
+  const response = new Interceptors<IResponseInterceptor<T>>()
 
   return {
     request,

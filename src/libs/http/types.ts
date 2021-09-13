@@ -11,13 +11,13 @@ export enum REQUEST_TYPE {
 
 export type IRequestType = keyof typeof REQUEST_TYPE
 
-export type IRequestInterceptor = (options: IRequestOptions) => IRequestOptions
+export type IRequestInterceptor = <T>(options: IRequestOptions<T>) => IRequestOptions<T>
 
-export type IResponseInterceptor = (response: Response) => any
+export type IResponseInterceptor<T> = (response: T) => any
 
-export interface IHttpInterceptors {
+export interface IHttpInterceptors<T> {
   request: IRequestInterceptor[]
-  response: IResponseInterceptor[]
+  response: IResponseInterceptor<T>[]
 }
 
 /**
@@ -49,7 +49,7 @@ export interface IRequestOptional {
 /**
  * 请求参数
  */
-export interface IRequestOptions extends IRequestOptional {
+export interface IRequestOptions<T> extends IRequestOptional {
   /**
    * 地址
    */
@@ -61,7 +61,7 @@ export interface IRequestOptions extends IRequestOptional {
   /**
    * 拦截器
    */
-  interceptors?: IHttpInterceptors
+  interceptors?: IHttpInterceptors<T>
   /**
    * 模拟数据
    */
