@@ -9,9 +9,9 @@ export const elementGetRectByView = (element: HTMLElement) => {
 
   return {
     top: rect.top - top,
-    bottom: rect.bottom - top,
+    bottom: document.documentElement.clientHeight - rect.bottom - top,
     left: rect.left - left,
-    right: rect.right - left
+    right: document.documentElement.clientWidth - rect.right - left
   }
 }
 
@@ -29,11 +29,11 @@ export const elementWhetherAllInView = (element: HTMLElement) => {
 /**
  * 元素是否部分处于视口
  */
-export const elementWhetherPartInView = (element: HTMLElement) => {
+export const elementWhetherPartInView = (element: HTMLElement, skew = 0) => {
   const rect = elementGetRectByView(element)
   return (
-    rect.top <= (window.innerHeight || document.documentElement.clientWidth || document.body.clientWidth) &&
-    rect.top + element.clientHeight > 0
+    rect.top - skew <= (window.innerHeight || document.documentElement.clientWidth || document.body.clientWidth) &&
+    rect.top + skew + element.clientHeight > 0
   )
 }
 

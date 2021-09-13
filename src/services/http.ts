@@ -70,7 +70,7 @@ instance.interceptors.response.use(response => {
     token.set(response.headers.authorization)
   }
 
-  return response
+  return response.data
 }, errorHandler)
 
 export default instance

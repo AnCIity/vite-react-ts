@@ -23,10 +23,10 @@ class Scroll {
    * 初始化任务
    */
   private init() {
-    document.body.onscroll = () => {
+    window.addEventListener('scroll', () => {
       this.top = document.documentElement.scrollTop
       this.test()
-    }
+    })
   }
 
   /**
@@ -54,9 +54,4 @@ class Scroll {
   }
 }
 
-/**
- * 滚动任务单例
- */
-const scrollTask = new Scroll()
-
-export default scrollTask
+export default Scroll
