@@ -5,7 +5,9 @@ import { DefaultConfig, IHttpInterceptors, IRequestOptional, IRequestOptions, RE
 
 const request = async <T>(options: IRequestOptions<T> = { url: '', method: REQUEST_TYPE.POST }): Promise<T> => {
   if (options?.interceptors?.request?.length) {
-    options.interceptors.request.forEach(cb => (options = cb(options)))
+    options.interceptors.request.forEach(cb => {
+      options = cb(options)
+    })
   }
 
   if (!options.headers && !(options?.body instanceof FormData)) {
@@ -25,14 +27,17 @@ const request = async <T>(options: IRequestOptions<T> = { url: '', method: REQUE
     }
   }
 
-  let url = options.url
+  let { url } = options
   const requestParams: RequestInit = { method: options.method || REQUEST_TYPE.POST }
 
   if (options.headers) requestParams.headers = options.headers
 
-  if (options.params) Object.keys(options.params).forEach(key => (url = url.replace(':key', options.params[key])))
+  if (options.params)
+    Object.keys(options.params).forEach(key => {
+      url = url.replace(':key', options.params[key])
+    })
 
-  if (options.query) url = url + '?' + qs.stringify(options.query)
+  if (options.query) url = `${url}?${qs.stringify(options.query)}`
 
   if (options.body) requestParams.body = options.body instanceof FormData ? options.body : qs.stringify(options.body)
 
@@ -43,7 +48,9 @@ const request = async <T>(options: IRequestOptions<T> = { url: '', method: REQUE
 
     let json: T = await response.json()
     if (options?.interceptors?.response?.length) {
-      options.interceptors.response.forEach(cb => (json = cb(json)))
+      options.interceptors.response.forEach(cb => {
+        json = cb(json)
+      })
     }
 
     return json
@@ -53,6 +60,7 @@ const request = async <T>(options: IRequestOptions<T> = { url: '', method: REQUE
     if (error !== null || error !== undefined) {
       throw error
     }
+    return error
   }
 }
 
