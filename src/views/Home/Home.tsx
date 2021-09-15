@@ -1,6 +1,6 @@
 import React from 'react'
 import instance from '@/services/http'
-import useRequest from '@/libs/react/hooks/useLayoutRequest'
+import useRequest from '@/libs/react/hooks/useRequest'
 import LazyView from '@/libs/react/components/LazyView/LazyView'
 import './home.styl'
 
@@ -44,7 +44,7 @@ const numberList = [
 ]
 
 const Home: React.FC = () => {
-  const { loading, result, run } = useRequest<any>(() => instance.get('/article/'))
+  const { loading, result, run } = useRequest<() => Promise<any>>(() => instance.get('/article/'))
 
   return (
     <div className='home' style={{ paddingBottom: '2000px' }}>

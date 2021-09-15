@@ -6,20 +6,20 @@
 /**
  * 内存缓存
  */
-class Memory {
-  private cache: { [k: string]: any } = {}
+class Memory<T = any> {
+  private cache: { [k: string]: T } = {}
 
   /**
    * 设置
    */
-  set(k: string, v: unknown): void {
+  set(k: string, v: T): void {
     this.cache[k] = v
   }
 
   /**
    * 获取
    */
-  get(k: string): void {
+  get(k: string): T {
     return this.cache[k]
   }
 
